@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import axios from 'axios'
+import axios from 'axios';
+import {Link} from 'react-router-dom';
 
 export default class ClassList extends Component {
   constructor() {
@@ -23,7 +24,7 @@ export default class ClassList extends Component {
 
   render() {
     const students = this.state.students.map((e,i) => (
-    <h3 key = {i}> {e.first_name} {e.last_name} </h3>
+    <Link to = {`/student/${ e.id }` } key = {i} > <h3> {e.first_name} {e.last_name} </h3> </Link>
     ));
 
     // could start to use name that is relevant and relates to what element actually is.... <h3 key={ i }>{ student.first_name } { student.last_name }</h3>
@@ -38,5 +39,5 @@ export default class ClassList extends Component {
     )
   }
 
-  
+
 }
